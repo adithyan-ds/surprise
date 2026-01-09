@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <meta property="og:title" content="Happy Anniversary My Wife! 💖" />
+  <meta property="og:description" content="A special surprise is waiting for you..." />
+  <meta property="og:image" content="https://your-website-link.com/images/thumbnail.png" />
+
+  <title>For BHAGYA 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="center-screen">
+
+  <div id="countdown-box" class="unlock-box">
+    <h1>🤫 Shhh... Not Yet!</h1>
+    <p>Your surprise is locked until our special day starts.</p>
+    <div class="timer-display" id="timer">Loading...</div>
+    <p class="wait-text">Please come back in:</p>
+  </div>
+
+  <div id="login-box" class="unlock-box hidden">
+    <h1>💝 Happy Anniversary!</h1>
+    <p>The wait is over. Enter the secret word to unlock.</p>
+
+    <input id="secret" class="input" type="password" placeholder="Secret word">
+    
+    <button class="btn primary" onclick="unlock()">Unlock Surprise</button>
+    <p id="msg" class="msg"></p>
+  </div>
+
+  <script>
+    // ---------------------------------------------------------
+    // ⚙️ IMPORTANT: SET HER BIRTHDAY HERE
+    // Format: YYYY-MM-DDTHH:MM:SS
+    // Example for Feb 14, 2026: "2026-02-14T00:00:00"
+    // ---------------------------------------------------------
+    const targetDate = new Date("2026-03-11T00:00:00").getTime(); 
+
+    const timerElement = document.getElementById("timer");
+    const countdownBox = document.getElementById("countdown-box");
+    const loginBox = document.getElementById("login-box");
+
+    // Update the count down every 1 second
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      // Time calculations
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result
+      timerElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, show the login box
+      if (distance < 0) {
+        clearInterval(x);
+        countdownBox.style.display = "none"; // Hide Timer
+        loginBox.classList.remove("hidden"); // Show Login
+        loginBox.style.display = "block";    // Ensure visibility
+      }
+    }, 1000);
+
+    // Login Logic
+    function unlock(){
+      const pass = document.getElementById('secret').value.trim().toLowerCase();
+      const msg = document.getElementById('msg');
+
+      if(pass === "forever"){
+        window.location.href = "surprise.html";
+      } else {
+        msg.textContent = "❌ Nope — try again!";
+        msg.style.color = "red";
+      }
+    }
+
+    // Floating Hearts Logic (From your original code)
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement("div");
+      heart.innerHTML = "💗";
+      heart.style.position = "absolute";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = Math.random() * 100 + "vh";
+      heart.style.fontSize = Math.random() * 20 + 20 + "px";
+      heart.style.animation = "floatUp 6s infinite ease-in-out";
+      heart.style.animationDelay = Math.random() * 5 + "s";
+      heart.style.opacity = "0.6";
+      heart.style.pointerEvents = "none"; // Makes sure hearts don't block clicks
+      document.body.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>

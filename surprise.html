@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <title>Happy Anniversary, BHAGYA 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="romantic-bg">
+
+<div id="hearts"></div>
+
+<header class="hero">
+  <h1 class="typewriter">Happy Anniversary, Bhagya 💗</h1>
+  <p class="subtitle">You're The Best Part Of My Life ❤️✨</p>
+</header>
+<div class="slideshow-container">
+  <div class="slide-track" id="slideTrack">
+    <!-- images will auto-slide -->
+    <img class="slide-img" src="images/a.jpg"/>
+    <img class="slide-img" src="images/b.jpg"/>
+    <img class="slide-img" src="images/c.jpg"/>
+    <img class="slide-img" src="images/d.jpg"/>
+    <img class="slide-img" src="images/e.jpg"/>
+    <img class="slide-img" src="images/f.jpg"/>
+    <img class="slide-img" src="images/g.jpg"/>
+    <img class="slide-img" src="images/h.jpg"/>
+    <img class="slide-img" src="images/i.jpg"/>
+    <img class="slide-img" src="images/j.jpg"/>
+    <img class="slide-img" src="images/k.jpg"/>
+    <img class="slide-img" src="images/l.jpg"/>
+    <img class="slide-img" src="images/m.jpg"/>
+    <img class="slide-img" src="images/n.jpg"/>
+    <img class="slide-img" src="images/o.jpg"/>
+    
+  </div>
+</div>
+
+<!-- Fullscreen popup -->
+<div id="imagePopup" class="popup hidden">
+  <span class="close" onclick="closePopup()">×</span>
+  <img id="popupImage" class="popup-img"/>
+</div>
+
+<div id="bigHeart" class="magic-glow"></div>
+
+<!-- Center Area -->
+<div class="center-wrapper">
+
+  <div class="letter-card">
+    <h2>💌 A Letter For You</h2>
+    <p id="letterText"></p>
+    <button class="btn" onclick="printLetter()">Print</button>
+  </div>
+
+
+  <div class="reveal-area">
+    <button class="btn primary large" onclick="reveal()">Click for Surprise 💖</button>
+    <div id="final" class="hidden">
+      <h2>💗 Picture From My Dream 💗</h2>
+      <img class="slide-img" src="images/ai.jpg"/>
+    </div>
+  </div>
+
+  <audio id="bgm" loop src="media/song.mpeg"></audio>
+ <button id="musicBtn" class="btn" onclick="toggleMusic()">🎵 Play Music</button>
+
+</div> <!-- END center-wrapper -->
+
+<script src="script.js"></script>
+</body>
+</html>
